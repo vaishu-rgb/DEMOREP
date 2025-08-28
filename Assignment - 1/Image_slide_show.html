@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slideshow & Expand/Collapse</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      text-align: center;
+      margin: 20px;
+    }
+
+    /* Slideshow styles */
+    .slideshow-container {
+      position: relative;
+      max-height: 700px;
+      max-width: 500px;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .fade {
+      animation: fadeEffect 2s;
+    }
+
+    @keyframes fadeEffect {
+      from { opacity: 0.4; }
+      to   { opacity: 1; }
+    }
+
+    /* Expand/Collapse */
+    .collapsible {
+      background: #6200ea;
+      color: white;
+      cursor: pointer;
+      padding: 12px;
+      width: 300px;
+      border: none;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 16px;
+      margin: 20px auto;
+    }
+
+    .content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-out;
+      background: white;
+      width: 300px;
+      margin: auto;
+      border-radius: 8px;
+      padding: 0 12px;
+      box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+    }
+
+    .content p {
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Image Slideshow (Fading)</h2>
+  <div class="slideshow-container">
+    <img class="slide fade" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrE22GJWfSF0a9sbu9coePZ4NKUjy7YIgtPcGcpYyMoaD6WkSQ0upjZ7C6rNzuELgZ1S4&usqp=CAU" alt="Image1">
+    <img class="slide fade" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRD69qAgguZqA-vNe-g-zEcY4KfCfBnXH6udw&s" alt="Image2">
+    <img class="slide fade" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtkboRKmBxdZ13Zu51YOyEpprPUpWW68WJpo3F2t1TwOcLWJWqeLs_GkOI0rE4cy5kr84&usqp=CAU" alt="Image3">
+  </div>
+
+  <h2>Expand / Collapse Section</h2>
+  <button class="collapsible">Show More</button>
+  <div class="content">
+    <p>This is some hidden content that can be expanded and collapsed.  
+    You can put text, images, or even forms here!</p>
+  </div>
+
+  <script>
+    // Slideshow Script
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slide");
+
+    function showSlides() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1 }
+      slides[slideIndex-1].style.display = "block";
+      slides[slideIndex-1].classList.add("fade");
+      setTimeout(showSlides, 3000); // Change image every 3s
+    }
+    showSlides();
+
+    // Expand/Collapse Script
+    const coll = document.querySelector(".collapsible");
+    const content = document.querySelector(".content");
+
+    coll.addEventListener("click", function() {
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+        coll.innerText = "Show More";
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        coll.innerText = "Show Less";
+      }
+    });
+  </script>
+
+</body>
+</html>
