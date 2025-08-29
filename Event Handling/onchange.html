@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>onchange Example</title>
+  <script>
+    function handleChange() {
+      let value = document.getElementById("city").value;
+      alert("You selected: " + value);
+    }
+  </script>
+</head>
+<body>
+  <h2>onchange Event</h2>
+  <label for="city">Choose a city:</label>
+  <select id="city" onchange="handleChange()">
+    <option value="">--Select--</option>
+    <option value="Hyderabad">Hyderabad</option>
+    <option value="Delhi">Delhi</option>
+    <option value="Chennai">Chennai</option>
+  </select>
+</body>
+</html>

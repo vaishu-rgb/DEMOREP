@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>onkeydown Example</title>
+  <script>
+    function showKey(event) {
+      document.getElementById("output").innerText =
+        "You pressed: " + event.key;
+    }
+  </script>
+</head>
+<body onkeydown="showKey(event)">
+  <h2>onkeydown Event</h2>
+  <input type="text" placeholder="Type here..." />
+  <p id="output"></p>
+</body>
+</html>
