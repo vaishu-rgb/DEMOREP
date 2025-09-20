@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conference Countdown</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="countdown-container">
+    <h1>International Conference Countdown</h1>
+
+    <label for="eventInput">Select Conference Date & Time:</label><br>
+    <input type="datetime-local" id="eventInput">
+    <button id="startBtn">Start Countdown</button>
+
+    <p id="eventDate"></p>
+
+    <p id="timer">Please select a date & time.</p>
+
+    <div class="progress-bar">
+      <div class="progress" id="progress"></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
